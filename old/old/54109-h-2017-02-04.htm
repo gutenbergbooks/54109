@@ -9,44 +9,53 @@
        body { margin-left: 8%; margin-right: 10%; }
        h1 { text-align: center; font-weight: bold; font-size: xx-large; }
        h2 { text-align: center; font-weight: bold; font-size: x-large; }
-       .pageno { right: 1%; font-size: x-small; background-color: inherit; color: silver;
-               text-indent: 0em; text-align: right; position: absolute;
-               border: thin solid silver; padding: .1em .2em; font-style: normal;
+       .pageno { right: 1%; font-size: x-small; background-color: inherit; color: silver; 
+               text-indent: 0em; text-align: right; position: absolute; 
+               border: thin solid silver; padding: .1em .2em; font-style: normal; 
                font-variant: normal; font-weight: normal; text-decoration: none; }
-       p { text-indent: 2%; margin-top: 0.25em; margin-bottom: 0.25em; text-align: justify; }
+       p { text-indent: 0; margin-top: 0.5em; margin-bottom: 0.5em; text-align: justify; }
        .fss { font-size: 75%; }
        .sc { font-variant: small-caps; }
        .large { font-size: large; }
        .xlarge { font-size: x-large; }
        .small { font-size: small; }
        .lg-container-l { text-align: left; }
-
-.rt {text-align:right;}
-
+       @media handheld { .lg-container-l { clear: both; } }
        .lg-container-r { text-align: right; }
-
+       @media handheld { .lg-container-r { clear: both; } }
        .linegroup { display: inline-block; text-align: left; }
-
+       @media handheld { .linegroup { display: block; margin-left: 1.5em; } }
        .linegroup .group { margin: 1em auto; }
        .linegroup .line { text-indent: -3em; padding-left: 3em; }
+       div.linegroup > :first-child { margin-top: 0; }
        .linegroup .in2 { padding-left: 4.0em; }
-
-       dl.dl_1 { margin: 2% auto 2% 8%; }
+       .dl_1 dd { text-align: left; padding-top: .5em; margin-left: 2.5em;
+               text-indent: -1em; }
+       .dl_1 dt { float: left; clear: left; text-align: left; width: 1.5em;
+               padding-top: .5em; padding-right: .5em; }
+       .ol_1 li {padding-left: 1em; text-indent: -1em; }
+       @media handheld { .dl_1 dt { float: left; clear: left; text-align: left;
+               width: 1.5em; padding-top: .5em; padding-right: .5em; } }
+       dl.dl_1 { margin-top: .5em; margin-bottom: .5em; }
        ol.ol_1 {padding-left: 0; margin-left: 5.56%; margin-top: .5em;
                margin-bottom: .5em; list-style-type: decimal; }
        div.pbb { page-break-before: always; }
        hr.pb { border: none; border-bottom: thin solid; margin-bottom: 1em; }
+       @media handheld { hr.pb { display: none; } }
        .chapter { clear: both; page-break-before: always; }
        .figcenter { clear: both; max-width: 100%; margin: 2em auto; text-align: center; }
        div.figcenter p { text-align: center; text-indent: 0; }
+       .figcenter img { max-width: 100%; height: auto; }
        .id001 { width:30%; }
        .id002 { width:10%; }
-       .ic001 { width:100%; }
-
-
+       @media handheld { .id001 { margin-left:35%; width:30%; } }
+       @media handheld { .id002 { margin-left:45%; width:10%; } }
+       .ic001 { width:100%; } 
+       .ig001 { width:100%; } 
+       .table0 { margin: auto; margin-top: 2em; }
        .nf-center { text-align: center; }
        .nf-center-c1 { text-align: left; margin: 1em 0; }
-       .c000 { margin-top: 0.25em; margin-bottom: 0.25em; }
+       .c000 { margin-top: 0.5em; margin-bottom: 0.5em; }
        .c001 { page-break-before: always; margin-top: 4em; }
        .c002 { margin-top: 2em; }
        .c003 { margin-top: 1em; }
@@ -55,7 +64,7 @@
        .c006 { margin-top: 2em; margin-bottom: 0.5em; }
        .c007 { text-align: right; }
        .c008 { vertical-align: top; text-align: right; padding-right: 1em; }
-
+       .c009 { vertical-align: top; text-align: left; padding-right: 1em; }
        .c010 { vertical-align: top; text-align: right; }
        .c011 { vertical-align: top; text-align: center; padding-right: 1em; }
        .c012 { border: none; border-bottom: thin solid; margin-top: 0.8em;
@@ -73,7 +82,10 @@
        .c021 { margin-left: 2.78%; margin-top: 4em; }
        div.tnotes { padding-left:1em;padding-right:1em;background-color:#E3E4FA;
               border:1px solid silver; margin:2em 10% 0 10%; }
-
+       .covernote { visibility: hidden; display: none; }
+       div.tnotes p { text-align:left; }
+       @media handheld { .covernote { visibility: visible; display: block;} }
+       img {max-width: 100%; height:auto; }
        .ph1 { text-indent: 0em; font-weight: bold; font-size: xx-large;
                margin: .67em auto; }
        .ph2 { text-indent: 0em; font-weight: bold; font-size: x-large; margin: .75em auto;
@@ -92,17 +104,32 @@
               border-style: solid;
               border-color: #000000;
               clear: both; }
-
-table {margin:1em auto;}
-
-td {text-align:left;}
     </style>
 </head>
 <body>
-<div>*** START OF THE PROJECT GUTENBERG EBOOK 54109 ***</div>
 <h1 class="pg">The Project Gutenberg eBook, Round the Fire Stories, by Arthur Conan Doyle</h1>
-<p>&#160;</p>
-<p>&#160;</p>
+<p>This eBook is for the use of anyone anywhere in the United States
+and most other parts of the world at no cost and with almost no
+restrictions whatsoever.  You may copy it, give it away or re-use it
+under the terms of the Project Gutenberg License included with this
+eBook or online at <a
+href="http://www.gutenberg.org">www.gutenberg.org</a>.  If you are not
+located in the United States, you'll have to check the laws of the
+country where you are located before using this ebook.</p>
+<p>Title: Round the Fire Stories</p>
+<p>Author: Arthur Conan Doyle</p>
+<p>Release Date: February 4, 2017  [eBook #54109]</p>
+<p>Language: English</p>
+<p>Character set encoding: UTF-8</p>
+<p>***START OF THE PROJECT GUTENBERG EBOOK ROUND THE FIRE STORIES***</p>
+<p>&nbsp;</p>
+<h4>E-text prepared by Richard Tonsing<br />
+    and the Online Distributed Proofreading Team<br />
+    (<a href="http://www.pgdp.net">http://www.pgdp.net</a>)<br />
+    from page images generously made available by<br />
+    Internet Archive<br />
+    (<a href="https://archive.org">https://archive.org</a>)</h4>
+<p>&nbsp;</p>
 <table border="0" style="background-color: #ccccff;margin: 0 auto;" cellpadding="10">
   <tr>
     <td valign="top">
@@ -116,16 +143,17 @@ td {text-align:left;}
     </td>
   </tr>
 </table>
-<p>&#160;</p>
+<p>&nbsp;</p>
 <hr class="full" />
-<p>&#160;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
 
-<h3><img src="images/cover.jpg"
-alt="" /></h3>
-
-<div id='Frontispiece'  class='figcenter'>
-<img src='images/i_001.jpg' alt='' />
+<div id='Frontispiece'  class='figcenter id001'>
+<img src='images/i_001.jpg' alt='' class='ig001' />
+<div class='ic001'>
 <p>“I BURST WITH A SHRIEK INTO MY OWN LIFE.”<br /><br />&#8196; &#8196; &#8196; &#8196; &#8196; &#8196; &#8196; &#8196; &#8196; &#8196; &#8196; &#8196; &#8196; &#8196; &#8196; &#8196; &#8196; &#8196; &#8196; &#8196; [<em>Page <a href='#Page_12'>12</a>.</em></p>
+</div>
 </div>
 
 <div>
@@ -139,7 +167,7 @@ alt="" /></h3>
     <div class='c003'><span class='small'>AUTHOR OF</span></div>
     <div><span class='small'>“THE WHITE COMPANY,” ETC., ETC.</span></div>
     <div class='c002'><em>WITH A FRONTISPIECE</em></div>
-    <div><em>BY A. CASTAIGNE</em><br />&#160;</div>
+    <div><em>BY A. CASTAIGNE</em><br />&nbsp;</div>
     <div class='c002'><span class='large'>LONDON</span></div>
     <div><span class='large'>SMITH, ELDER &amp; CO., 15, WATERLOO PLACE</span></div>
     <div><span class='large'>1908</span></div>
@@ -163,8 +191,8 @@ alt="" /></h3>
   <h2 class='c005'>PREFACE</h2>
 </div>
 
-<div  class='figcenter'>
-<img src='images/i_004.jpg' alt=''  />
+<div  class='figcenter id002'>
+<img src='images/i_004.jpg' alt='' class='ig001' />
 </div>
 
 <p class='c006'>In a previous volume, “The Green Flag,” I have
@@ -195,129 +223,125 @@ very satisfied.</p>
   <h2 class='c005'>CONTENTS</h2>
 </div>
 
-
-
-
-<table cellspacing="3">
+<table class='table0' summary='CONTENTS'>
   <tr>
-    <th class='rt'></th>
-    <th>&#160; </th>
+    <th class='c008'></th>
+    <th class='c009'>&nbsp;</th>
     <th class='c010'>PAGE</th>
   </tr>
-
+  <tr><td>&nbsp;</td></tr>
   <tr>
-    <td class='rt'>I.</td>
-    <td><span class='sc'>The Leather Funnel</span></td>
+    <td class='c008'>I.</td>
+    <td class='c009'><span class='sc'>The Leather Funnel</span></td>
     <td class='c010'><a href='#Page_1'>1</a></td>
   </tr>
-
+  <tr><td>&nbsp;</td></tr>
   <tr>
-    <td class='rt'>II.</td>
-    <td><span class='sc'>The Beetle Hunter</span></td>
+    <td class='c008'>II.</td>
+    <td class='c009'><span class='sc'>The Beetle Hunter</span></td>
     <td class='c010'><a href='#Page_18'>18</a></td>
   </tr>
-
+  <tr><td>&nbsp;</td></tr>
   <tr>
-    <td class='rt'>III.</td>
-    <td><span class='sc'>The Man with the Watches</span></td>
+    <td class='c008'>III.</td>
+    <td class='c009'><span class='sc'>The Man with the Watches</span></td>
     <td class='c010'><a href='#Page_41'>41</a></td>
   </tr>
-
+  <tr><td>&nbsp;</td></tr>
   <tr>
-    <td class='rt'>IV.</td>
-    <td><span class='sc'>The Pot of Caviare</span></td>
+    <td class='c008'>IV.</td>
+    <td class='c009'><span class='sc'>The Pot of Caviare</span></td>
     <td class='c010'><a href='#Page_65'>65</a></td>
   </tr>
-
+  <tr><td>&nbsp;</td></tr>
   <tr>
-    <td class='rt'>V.</td>
-    <td><span class='sc'>The Japanned Box</span></td>
+    <td class='c008'>V.</td>
+    <td class='c009'><span class='sc'>The Japanned Box</span></td>
     <td class='c010'><a href='#Page_85'>85</a></td>
   </tr>
-
+  <tr><td>&nbsp;</td></tr>
   <tr>
-    <td class='rt'>VI.</td>
-    <td><span class='sc'>The Black Doctor</span></td>
+    <td class='c008'>VI.</td>
+    <td class='c009'><span class='sc'>The Black Doctor</span></td>
     <td class='c010'><a href='#Page_103'>103</a></td>
   </tr>
-
+  <tr><td>&nbsp;</td></tr>
   <tr>
-    <td class='rt'>VII.</td>
-    <td><span class='sc'>Playing with Fire</span></td>
+    <td class='c008'>VII.</td>
+    <td class='c009'><span class='sc'>Playing with Fire</span></td>
     <td class='c010'><a href='#Page_129'>129</a></td>
   </tr>
-
+  <tr><td>&nbsp;</td></tr>
   <tr>
-    <td class='rt'>VIII.</td>
-    <td><span class='sc'>The Jew’s Breastplate</span></td>
+    <td class='c008'>VIII.</td>
+    <td class='c009'><span class='sc'>The Jew’s Breastplate</span></td>
     <td class='c010'><a href='#Page_149'>149</a></td>
   </tr>
-
+  <tr><td>&nbsp;</td></tr>
   <tr>
-    <td class='rt'>IX.</td>
-    <td><span class='sc'>The Lost Special</span></td>
+    <td class='c008'>IX.</td>
+    <td class='c009'><span class='sc'>The Lost Special</span></td>
     <td class='c010'><a href='#Page_177'>177</a></td>
   </tr>
-
+  <tr><td>&nbsp;</td></tr>
   <tr>
-    <td class='rt'>X.</td>
-    <td><span class='sc'>The Club-footed Grocer</span></td>
+    <td class='c008'>X.</td>
+    <td class='c009'><span class='sc'>The Club-footed Grocer</span></td>
     <td class='c010'><a href='#Page_202'>202</a></td>
   </tr>
-
+  <tr><td>&nbsp;</td></tr>
   <tr>
-    <td class='rt'>XI.</td>
-    <td><span class='sc'>The Sealed Room</span></td>
+    <td class='c008'>XI.</td>
+    <td class='c009'><span class='sc'>The Sealed Room</span></td>
     <td class='c010'><a href='#Page_229'>229</a></td>
   </tr>
-
+  <tr><td>&nbsp;</td></tr>
   <tr>
-    <td class='rt'>XII.</td>
-    <td><span class='sc'>The Brazilian Cat</span></td>
+    <td class='c008'>XII.</td>
+    <td class='c009'><span class='sc'>The Brazilian Cat</span></td>
     <td class='c010'><a href='#Page_248'>248</a></td>
   </tr>
-
+  <tr><td>&nbsp;</td></tr>
   <tr>
-    <td class='rt'>XIII.</td>
-    <td><span class='sc'>The Usher of Lea House School</span></td>
+    <td class='c008'>XIII.</td>
+    <td class='c009'><span class='sc'>The Usher of Lea House School</span></td>
     <td class='c010'><a href='#Page_276'>276</a></td>
   </tr>
-
+  <tr><td>&nbsp;</td></tr>
   <tr>
-    <td class='rt'>XIV.</td>
-    <td><span class='sc'>The Brown Hand</span></td>
+    <td class='c008'>XIV.</td>
+    <td class='c009'><span class='sc'>The Brown Hand</span></td>
     <td class='c010'><a href='#Page_299'>299</a></td>
   </tr>
-
+  <tr><td>&nbsp;</td></tr>
   <tr>
-    <td class='rt'>XV.</td>
-    <td><span class='sc'>The Fiend of the Cooperage</span></td>
+    <td class='c008'>XV.</td>
+    <td class='c009'><span class='sc'>The Fiend of the Cooperage</span></td>
     <td class='c010'><a href='#Page_321'>321</a></td>
   </tr>
-
+  <tr><td>&nbsp;</td></tr>
   <tr>
-    <td class='rt'>XVI.</td>
-    <td><span class='sc'>Jelland’s Voyage</span></td>
+    <td class='c008'>XVI.</td>
+    <td class='c009'><span class='sc'>Jelland’s Voyage</span></td>
     <td class='c010'><a href='#Page_340'>340</a></td>
   </tr>
-
+  <tr><td>&nbsp;</td></tr>
   <tr>
-    <td class='rt'>XVII.</td>
-    <td>B. 24</td>
+    <td class='c008'>XVII.</td>
+    <td class='c009'>B. 24</td>
     <td class='c010'><a href='#Page_351'>351</a></td>
   </tr>
-
-
+  <tr><td>&nbsp;</td></tr>
+  <tr><td>&nbsp;</td></tr>
   <tr>
     <td class='c011' colspan='2'>“<span class='sc'>I burst with a Shriek into my own Life.</span>”</td>
     <td class='c010'><em><a href='#Frontispiece'>Frontispiece</a></em>.</td>
   </tr>
   <tr>
     <td class='c011' colspan='2'>(<em>From a drawing by A. Castaigne.</em>)</td>
-    <td class='c010'>&#160;</td>
+    <td class='c010'>&nbsp;</td>
   </tr>
 </table>
-
 <div class='pbb'>
  <hr class='pb c003' />
 </div>
@@ -332,8 +356,8 @@ very satisfied.</p>
 
 </div>
 
-<div  class='figcenter'>
-<img src='images/i_008.jpg' alt='' />
+<div  class='figcenter id002'>
+<img src='images/i_008.jpg' alt='' class='ig001' />
 </div>
 
 <div class='chapter'>
@@ -387,7 +411,7 @@ that he had at last discovered the elixir of life. It is not
 with his complex character that I have to deal, but with
 the very strange and inexplicable incident which had
 its rise in my visit to him in the early spring of the
-year ’82.</p>
+year ‘82.</p>
 
 <p class='c000'>I had known Dacre in England, for my researches
 in the Assyrian Room of the British Museum had been
@@ -2844,7 +2868,7 @@ your previous experience.”</p>
 
 <p class='c000'>The old man’s face set very grimly.</p>
 
-<p class='c000'>“I was in Sung-tong, in South China, in ’eighty-nine,”
+<p class='c000'>“I was in Sung-tong, in South China, in ‘eighty-nine,”
 said he.</p>
 
 <p class='c000'>“It’s a very extraordinary coincidence that you
@@ -3325,7 +3349,7 @@ we’ve learned to appreciate each other’s nations.
 <span class='pageno' id='Page_82'>82</span>There’s the Colonel here stands for Germany. And
 Father Pierre is for France. Then there’s the Professor
 for America. Ralston and I are Britishers.
-Then there’s the ladies, God bless ’em! They have
+Then there’s the ladies, God bless ‘em! They have
 been angels of mercy and compassion all through the
 siege. I think we should drink the health of the ladies.
 Wonderful thing—the quiet courage, the patience, the—what
@@ -3797,17 +3821,17 @@ frightened rabbit.</p>
 
 <p class='c000'>“What is the matter, Mrs. Brown?” I asked.</p>
 
-<p class='c000'>“It’s master!” she gasped. “Oh ’ow ’e frightened
-me! If you had seen ’is eyes, Mr. Colmore, sir. I
-thought ’e would ’ave been the death of me.”</p>
+<p class='c000'>“It’s master!” she gasped. “Oh ‘ow ‘e frightened
+me! If you had seen ‘is eyes, Mr. Colmore, sir. I
+thought ‘e would ‘ave been the death of me.”</p>
 
 <p class='c000'>“But what had you done?”</p>
 
 <p class='c000'>“Done, sir! Nothing. At least nothing to make
-<span class='pageno' id='Page_96'>96</span>so much of. Just laid my ’and on that black box of ’is—’adn’t
-even opened it, when in ’e came and you ’eard
-the way ’e went on. I’ve lost my place, and glad I am
-of it, for I would never trust myself within reach of ’im
+<span class='pageno' id='Page_96'>96</span>so much of. Just laid my ‘and on that black box of ‘is—‘adn’t
+even opened it, when in ‘e came and you ‘eard
+the way ‘e went on. I’ve lost my place, and glad I am
+of it, for I would never trust myself within reach of ‘im
 again.”</p>
 
 <p class='c000'>So it was the japanned box which was the cause of
@@ -5897,7 +5921,7 @@ strongly advise you to keep a very careful watch over
 the many valuable things which are committed to your
 charge. I do not think that the present system of a
 single watchman is sufficient. Be upon your guard, or
-an irreparable misfortune may occur.’”</p>
+an irreparable misfortune may occur.”</p>
 
 <p class='c000'>“Is that all?”</p>
 
@@ -6682,7 +6706,7 @@ urim and thummim.</p>
 <p class='c000'>“‘Good God!’ I cried. ‘How have you escaped
 discovery?’</p>
 
-<p class='c000'>“‘By the substitution of twelve others, made especially
+<p class='c000'>“By the substitution of twelve others, made especially
 to my order, in which the originals are so
 carefully imitated that I defy the eye to detect the
 difference.’</p>
@@ -7086,10 +7110,16 @@ any connection. There remain three other side lines
 leading—</p>
 
   <dl class='dl_1'>
-    <dt>(<em>a</em>) To the Carnstock Iron Works;</dt>
-    <dt>(<em>b</em>) To the Big Ben Colliery;</dt>
-    <dt>(<em>c</em>) To the Perseverance Colliery.</dt>
-      </dl>
+    <dt>(<em>a</em>)</dt>
+    <dd>To the Carnstock Iron Works;
+    </dd>
+    <dt>(<em>b</em>)</dt>
+    <dd>To the Big Ben Colliery;
+    </dd>
+    <dt>(<em>c</em>)</dt>
+    <dd>To the Perseverance Colliery.
+    </dd>
+    </dl>
 
 <p class='c000'>“Of these the Big Ben line is not more than a
 quarter of a mile long, and ends at a dead wall of
@@ -7630,8 +7660,8 @@ formidable when he is against you as when he is with
 you, and that he is not a man to go to the guillotine
 until he has seen that every one of you is <i><span lang="fr" xml:lang="fr">en route</span></i> for
 New Caledonia. For your own sake, if not for mine,
-make haste, Monsieur de&#160;——, and General&#160;——, and
-Baron&#160;—— (you can fill up the blanks for yourselves
+make haste, Monsieur de&nbsp;——, and General&nbsp;——, and
+Baron&nbsp;—— (you can fill up the blanks for yourselves
 as you read this). I promise you that in the next
 edition there will be no blanks to fill.</p>
 
@@ -8002,7 +8032,7 @@ no pay.”</p>
 They are watchin’ Greta House, and Maister Maple is
 afeard of them. That’s why he wanted us to keep
 clear of them, and that’s why I’ve been a-trying to
-dodge ’em.”</p>
+dodge ‘em.”</p>
 
 <p class='c000'>Here was something definite at last. Some body
 of men were threatening my uncle. The sailor was
@@ -8054,10 +8084,10 @@ kinship as I listened to his villainous accent. “So,
 nephew,” said he, holding out his hand. “Come in,
 come in, man, quick, and don’t leave the door open.
 Your mother said you were grown a big lad, and, my
-word, she ’as a right to say so. ’Ere’s a ’alf-crown for
+word, she ‘as a right to say so. ‘Ere’s a ‘alf-crown for
 you, William, and you can go back again. Put the
-<span class='pageno' id='Page_213'>213</span>things down. ’Ere, Enoch, take Mr. John’s things, and
-see that ’is supper is on the table.”</p>
+<span class='pageno' id='Page_213'>213</span>things down. ‘Ere, Enoch, take Mr. John’s things, and
+see that ‘is supper is on the table.”</p>
 
 <p class='c000'>As my uncle, after fastening the door, turned to
 show me into the sitting-room, I became aware of his
@@ -8080,7 +8110,7 @@ furniture was scant and plain, but on a trestle-table in
 the centre some supper, cold meat, bread, and a jug of
 beer was laid for me. An elderly manservant, as
 manifest a Cockney as his master, waited upon me,
-while my uncle, sitting in a corner, asked me many
+while my uncle, sitting in a comer, asked me many
 questions as to my mother and myself. When my
 meal was finished he ordered his man Enoch to
 unpack my gun. I observed that two other guns, old
@@ -8097,7 +8127,7 @@ You can duck when you pass the lattice.”</p>
 <p class='c000'>“For fear of being seen?” I asked.</p>
 
 <p class='c000'>“For fear of bein’ shot, my lad. That’s the trouble.
-Now, come an’ sit beside me on the trestle ’ere, and I’ll
+Now, come an’ sit beside me on the trestle ‘ere, and I’ll
 tell you all about it, for I can see that you are the
 right sort and can be trusted.”</p>
 
@@ -8116,27 +8146,27 @@ lines long.</p>
 <p class='c000'>“Who is he, then?” I asked.</p>
 
 <p class='c000'>My uncle cocked his distorted foot into the air.
-“That’s ’is mark!” said he. “’E was doin’ time for
-that. Now ’e’s out an’ after me again.”</p>
+“That’s ‘is mark!” said he. “‘E was doin’ time for
+that. How ‘e’s out an’ after me again.”</p>
 
 <p class='c000'>“But why should he be after you?”</p>
 
-<p class='c000'>“Because ’e wants to kill me. Because ’e’ll never
-rest, the worrying devil, until ’e ’as ’ad ’is revenge on
+<p class='c000'>“Because ‘e wants to kill me. Because ‘e’ll never
+rest, the worrying devil, until ‘e ‘as ‘ad ‘is revenge on
 me. It’s this way, nephew! I’ve no secrets from you.
-’e thinks I’ve wronged ’im. For argument’s sake we’ll
-suppose I ’ave wronged ’im. And now ’im and ’is
+‘E thinks I’ve wronged ‘im. For argument’s sake we’ll
+suppose I ‘ave wronged ‘im. And now ‘im and ‘is
 friends are after me.”</p>
 
 <p class='c000'>“Who are his friends?”</p>
 
 <p class='c000'>My uncle’s boom sank suddenly to a frightened
 whisper. “Sailors!” said he. “I knew they would
-<span class='pageno' id='Page_215'>215</span>come when I saw that ’ere paper, and two days ago I
+<span class='pageno' id='Page_215'>215</span>come when I saw that ‘ere paper, and two days ago I
 looked through that window and three of them was
-standin’ lookin’ at the ’ouse. It was after that that I
+standin’ lookin’ at the ‘ouse. It was after that that I
 wrote to your mother. They’ve marked me down, and
-they’re waitin’ for ’im.”</p>
+they’re waitin’ for ‘im.”</p>
 
 <p class='c000'>“But why not send for the police?”</p>
 
@@ -8149,11 +8179,11 @@ help me.”</p>
 
 <p class='c000'>“I’ll tell you. I’m going to move. That’s what
 all these boxes are for. Everything will soon be
-packed and ready. I ’ave friends at Leeds, and I shall
+packed and ready. I ‘ave friends at Leeds, and I shall
 be safer there. Not safe, mind you, but safer. I start
 to-morrow evening, and if you will stand by me until
 then I will make it worth your while. There’s only
-Enoch and me to do everything, but we shall ’ave it
+Enoch and me to do everything, but we shall ‘ave it
 all ready, I promise you, by to-morrow evening. The
 cart will be round then, and you and me and Enoch
 and the boy William can guard the things as far as
@@ -8165,19 +8195,19 @@ way.”</p>
 
 <p class='c000'>“Ah, I knew they were watching us. That was
 why I asked you to get out at the wrong station and
-to drive to Purcell’s instead of comin’ ’ere. We are
+to drive to Purcell’s instead of comin’ ‘ere. We are
 blockaded—that’s the word.”</p>
 
 <p class='c000'>“And there was another,” said I, “a man with a
 pipe.”</p>
 
-<p class='c000'>“What was ’e like?”</p>
+<p class='c000'>“What was ‘e like?”</p>
 
 <p class='c000'>“Thin face, freckles, a peaked——”</p>
 
 <p class='c000'><span class='pageno' id='Page_216'>216</span>My uncle gave a hoarse scream.</p>
 
-<p class='c000'>“That’s ’im! that’s ’im! ’e’s come! God be
+<p class='c000'>“That’s ‘im! that’s ‘im! ‘e’s come! God be
 merciful to me, a sinner!” He went click-clacking
 about the room with his great foot like one distracted.
 There was something piteous and baby-like in that
@@ -8192,11 +8222,11 @@ things right.”</p>
 
 <p class='c000'>But he shook his head at me.</p>
 
-<p class='c000'>“E’s cunning and ’e’s cruel,” said he. “I can’t
-draw a breath without thinking of him, cos ’e buckled
-up three of my ribs. ’e’ll kill me this time, sure.
+<p class='c000'>“E’s cunning and ‘e’s cruel,” said he. “I can’t
+draw a breath without thinking of him, cos ‘e buckled
+up three of my ribs. ‘E’ll kill me this time, sure.
 There’s only one chance. We must leave what we
-’ave not packed, and we must be off first thing to-morrow
+‘ave not packed, and we must be off first thing to-morrow
 mornin’. Great God, what’s that!”</p>
 
 <p class='c000'>A tremendous knock upon the door had reverberated
@@ -8224,8 +8254,8 @@ skin.”</p>
 <p class='c000'>“What do they want?” I asked, as I read him the
 message.</p>
 
-<p class='c000'>“What they’ll never ’ave! No, by the Lord,
-never!” he cried, with a fine burst of spirit. “’Ere,
+<p class='c000'>“What they’ll never ‘ave! No, by the Lord,
+never!” he cried, with a fine burst of spirit. “‘Ere,
 Enoch! Enoch!”</p>
 
 <p class='c000'>The old fellow came running to the call.</p>
@@ -8240,13 +8270,13 @@ wronged, this one at least seemed to love him.</p>
 
 <p class='c000'>“Put your cloak on and your ‘at, Enoch, and out
 with you by the back door. You know the way across
-the moor to the Purcells’. Tell them that I must ’ave
+the moor to the Purcells’. Tell them that I must ‘ave
 the cart first thing in the mornin’, and that Purcell
 must come with the shepherd as well. We must get
 clear of this or we are done. First thing in the
 mornin’, Enoch, and ten pound for the job. Keep
 the black cloak on and move slow, and they will
-never see you. We’ll keep the ’ouse till you come
+never see you. We’ll keep the ‘ouse till you come
 back.”</p>
 
 <p class='c000'>It was a job for a brave man to venture out into
@@ -8266,7 +8296,7 @@ bolts and bars. “You shall never regret this night’s
 work. If we come through safely it will be the
 making of you. Stand by me till mornin’, and I stand
 by you while there’s breath in my body. The cart
-will be ’ere by five. What isn’t ready we can afford
+will be ‘ere by five. What isn’t ready we can afford
 to leave be’ind. We’ve only to load up and make for
 the early train at Congleton.”</p>
 
@@ -8277,7 +8307,7 @@ will be six of us, if they all come, and three guns.
 We can fight our way through. Where can they get
 guns, common, wandering seamen? A pistol or two
 at the most. If we can keep them out for a few hours
-we are safe. Enoch must be ’alfway to Purcell’s by
+we are safe. Enoch must be ‘alfway to Purcell’s by
 now.”</p>
 
 <p class='c000'>“But what do these sailors want?” I repeated.
@@ -8287,8 +8317,8 @@ now.”</p>
 white face.</p>
 
 <p class='c000'>“Don’t ask questions, nephew, and just do what I
-ask you,” said he. “Enoch won’t come back. ’e’ll
-just bide there and come with the cart. ’Ark, what is
+ask you,” said he. “Enoch won’t come back. ‘E’ll
+just bide there and come with the cart. ‘Ark, what is
 that?”</p>
 
 <p class='c000'>A distant cry rang from out of the darkness, and
@@ -8302,7 +8332,7 @@ curlew.</p>
 the sound of hurrying steps and a shrill call for
 help.</p>
 
-<p class='c000'>“They are after ’im!” cried my uncle, rushing to
+<p class='c000'>“They are after ‘im!” cried my uncle, rushing to
 the front door. He picked up the lantern and flashed
 it through the little shutter. Up the yellow funnel of
 light a man was running frantically, his head bowed
@@ -8356,7 +8386,7 @@ him.”</p>
 <p class='c000'>“You are, are you? Well, I wish you joy of your
 uncle and of your visit too. Quick’s the word, lads,
 for we must be aboard before morning. What shall we
-do with the old ’un?”</p>
+do with the old ‘un?”</p>
 
 <p class='c000'>“Trice him up Yankee fashion and give him six
 dozen,” said one of the seamen.</p>
@@ -8573,64 +8603,64 @@ hiccoughing with the hard, dry sobs of an old man
 among the stones upon the moor.</p>
 
 <p class='c000'><span class='pageno' id='Page_226'>226</span>“It’s the men of the <em>Black Mogul</em>,” he said. “Yes,
-yes, I knew that they would be the end of ’im.”</p>
+yes, I knew that they would be the end of ‘im.”</p>
 
 <p class='c000'>“Who are they?” I asked.</p>
 
-<p class='c000'>“Well, well, you are one of ’is own folk,” said he.
-“’E ’as passed away; yes, yes, it is all over and done.
+<p class='c000'>“Well, well, you are one of ‘is own folk,” said he.
+“‘E ‘as passed away; yes, yes, it is all over and done.
 I can tell you about it, no man better, but mum’s the
-word with old Enoch unless master wants ’im to speak.
-But his own nephew who came to ’elp ’im in the hour
+word with old Enoch unless master wants ‘im to speak.
+But his own nephew who came to ‘elp ‘im in the hour
 of need—yes, yes, Mister John, you ought to know.</p>
 
-<p class='c000'>“It was like this, sir. Your uncle ’ad ’is grocer’s
-business at Stepney, but ’e ’ad another business also.
-’e would buy as well as sell, and when ’e bought ’e
+<p class='c000'>“It was like this, sir. Your uncle ‘ad ‘is grocer’s
+business at Stepney, but ‘e ‘ad another business also.
+‘E would buy as well as sell, and when ‘e bought ‘e
 never asked no questions where the stuff came from.
-Why should ’e? It wasn’t no business of ’is, was it?
+Why should ‘e? It wasn’t no business of ‘is, was it?
 If folk brought him a stone or a silver plate, what was
-it to ’im where they got it? That’s good sense, and it
-ought to be good law, as I ’old. Any’ow, it was good
+it to ‘im where they got it? That’s good sense, and it
+ought to be good law, as I ‘old. Any’ow, it was good
 enough for us at Stepney.</p>
 
 <p class='c000'>“Well, there was a steamer came from South Africa
 what foundered at sea. At least, they say so, and
-Lloyd’s paid the money. She ’ad some very fine
-diamonds invoiced as being aboard of ’er. Soon after
+Lloyd’s paid the money. She ‘ad some very fine
+diamonds invoiced as being aboard of ‘er. Soon after
 there came the brig <em>Black Mogul</em> into the port o’ London,
-with ’er papers all right as ‘avin’ cleared from Port
-Elizabeth with a cargo of ‘ides. The captain, which ’is
-name was Elias, ’e came to see the master, and what
-d’you think that ’e ’ad to sell? Why, sir, as I’m a
-livin’ sinner ’e ’ad a packet of diamonds for all the
+with ‘er papers all right as ‘avin’ cleared from Port
+Elizabeth with a cargo of ‘ides. The captain, which ‘is
+name was Elias, ‘e came to see the master, and what
+d’you think that ‘e ‘ad to sell? Why, sir, as I’m a
+livin’ sinner ‘e ‘ad a packet of diamonds for all the
 world just the same as what was lost out o’ that there
-African steamer. ’ow did ’e get them? I don’t know.
-Master didn’t know. ’e didn’t seek to know either.
-The captain ’e was anxious for reasons of ’is own to get
-<span class='pageno' id='Page_227'>227</span>them safe, so ’e gave them to master, same as you
-might put a thing in a bank. But master ’e’d ’ad time
-to get fond of them, and ’e wasn’t over satisfied as to
-where the <em>Black Mogul</em> ’ad been tradin’, or where her
-captain ’ad got the stones, so when ’e come back for
-them the master ’e said as ’e thought they were best in
-’is own ’ands. Mind I don’t ’old with it myself, but
+African steamer. ‘Ow did ‘e get them? I don’t know.
+Master didn’t know. ‘E didn’t seek to know either.
+The captain ‘e was anxious for reasons of ‘is own to get
+<span class='pageno' id='Page_227'>227</span>them safe, so ‘e gave them to master, same as you
+might put a thing in a bank. But master ‘e’d ‘ad time
+to get fond of them, and ‘e wasn’t over satisfied as to
+where the <em>Black Mogul</em> ‘ad been tradin’, or where her
+captain ‘ad got the stones, so when ‘e come back for
+them the master ‘e said as ‘e thought they were best in
+‘is own ‘ands. Mind I don’t ‘old with it myself, but
 that was what master said to Captain Elias in the little
-back parlour at Stepney. That was ’ow ’e got ’is leg
+back parlour at Stepney. That was ‘ow ‘e got ‘is leg
 broke and three of his ribs.</p>
 
 <p class='c000'>“So the captain got jugged for that, and the master,
-when ’e was able to get about, thought that ’e would
-’ave peace for fifteen years, and ’e came away from
-London because ’e was afraid of the sailor men; but, at
-the end of five years, the captain was out and after ’im,
-with as many of ’is crew as ’e could gather. Send for
+when ‘e was able to get about, thought that ‘e would
+‘ave peace for fifteen years, and ‘e came away from
+London because ‘e was afraid of the sailor men; but, at
+the end of five years, the captain was out and after ‘im,
+with as many of ‘is crew as ‘e could gather. Send for
 the perlice, you says! Well, there are two sides to
-that, and the master ’e wasn’t much more fond of the
-perlice than Elias was. But they fair ’emmed master
-in, as you ’ave seen for yourself, and they bested ’im at
-last, and the loneliness that ’e thought would be ’is
-safety ’as proved ’is ruin. Well, well, ’e was ’ard to
+that, and the master ‘e wasn’t much more fond of the
+perlice than Elias was. But they fair ‘emmed master
+in, as you ‘ave seen for yourself, and they bested ‘im at
+last, and the loneliness that ‘e thought would be ‘is
+safety ‘as proved ‘is ruin. Well, well, ‘e was ‘ard to
 many, but a good master to me, and it’s long before I
 come on such another.”</p>
 
@@ -11547,7 +11577,7 @@ anatomical specimens.</p>
 studies,” said Sir Dominick. “These jars are the
 remains of what was once a most excellent collection,
 but unfortunately I lost the greater part of them when
-my house was burned down in Bombay in ’92. It was
+my house was burned down in Bombay in ‘92. It was
 a most unfortunate affair for me—in more ways than
 one. I had examples of many rare conditions, and
 my splenic collection was probably unique. These
@@ -13922,61 +13952,61 @@ man.</p>
 
 </div>
 
-<p><strong>SIR NIGEL.</strong> With Illustrations by <span class='sc'>Arthur Twidle</span>. Third
+<p class='c016'><strong>SIR NIGEL.</strong> With Illustrations by <span class='sc'>Arthur Twidle</span>. Third
 Impression. Crown 8vo. 6<em>s.</em></p>
 
-<p><strong>THE TRAGEDY OF THE ‘KOROSKO.’</strong> New Edition
+<p class='c017'><strong>THE TRAGEDY OF THE ‘KOROSKO.’</strong> New Edition
 With 40 Full-page Illustrations. Crown 8vo. 3<em>s.</em> 6<em>d.</em></p>
 
-<p><strong>UNCLE BERNAC</strong>: a Memory of the Empire. With 12 Full-page
+<p class='c017'><strong>UNCLE BERNAC</strong>: a Memory of the Empire. With 12 Full-page
 Illustrations. Third and Cheaper Edition. Crown 8vo. 3<em>s.</em> 6<em>d.</em></p>
 
-<p><strong>RODNEY STONE.</strong> New and Cheaper Illustrated Edition. With
+<p class='c017'><strong>RODNEY STONE.</strong> New and Cheaper Illustrated Edition. With
 8 Full-page Illustrations. Crown 8vo. 3<em>s.</em> 6<em>d.</em></p>
 
-<p><strong>THE WHITE COMPANY.</strong> New and Cheaper Edition (the 28th
+<p class='c017'><strong>THE WHITE COMPANY.</strong> New and Cheaper Edition (the 28th
 Edition. Revised). With 8 Full-page Illustrations. Crown 8vo. 3<em>s.</em> 6<em>d.</em></p>
 
-<p><strong>THE GREEN FLAG</strong>, and other Stories of War and Sport. With
+<p class='c017'><strong>THE GREEN FLAG</strong>, and other Stories of War and Sport. With
 a Frontispiece. <span class='sc'>New Edition.</span> Crown 8vo. 3<em>s.</em> 6<em>d.</em></p>
 
-<p><strong>THE ADVENTURES OF GERARD.</strong> With 16 Illustrations by
+<p class='c017'><strong>THE ADVENTURES OF GERARD.</strong> With 16 Illustrations by
 <span class='sc'>W. B. Wollen</span>. Crown 8vo. 3<em>s.</em> 6<em>d.</em></p>
 
-<p><strong>THE RETURN OF SHERLOCK HOLMES.</strong> Illustrated by
+<p class='c017'><strong>THE RETURN OF SHERLOCK HOLMES.</strong> Illustrated by
 <span class='sc'>Sidney Paget</span>. Crown 8vo. 3<em>s.</em> 6<em>d.</em></p>
 
-<p><strong>THE HOUND OF THE BASKERVILLES.</strong> With Illustrations
+<p class='c017'><strong>THE HOUND OF THE BASKERVILLES.</strong> With Illustrations
 by <span class='sc'>Sidney Paget</span>. Crown 8vo. 3<em>s.</em> 6<em>d.</em></p>
 
-<p><strong>THE ADVENTURES OF SHERLOCK HOLMES.</strong> With
+<p class='c017'><strong>THE ADVENTURES OF SHERLOCK HOLMES.</strong> With
 25 Illustrations by <span class='sc'>Sidney Paget</span>. Crown 8vo. 3<em>s.</em> 6<em>d.</em></p>
 
-<p><strong>THE EXPLOITS OF BRIGADIER GERARD.</strong> With 24 Illustrations
+<p class='c017'><strong>THE EXPLOITS OF BRIGADIER GERARD.</strong> With 24 Illustrations
 by <span class='sc'>W. B. Wollen</span>. Crown 8vo. 3<em>s.</em> 6<em>d.</em></p>
 
-<p><strong>THE SIGN OF FOUR.</strong> Illustrated. Crown 8vo. 3<em>s.</em> 6<em>d.</em></p>
+<p class='c017'><strong>THE SIGN OF FOUR.</strong> Illustrated. Crown 8vo. 3<em>s.</em> 6<em>d.</em></p>
 
-<p><strong>THE MEMOIRS OF SHERLOCK HOLMES.</strong> With Illustrations
+<p class='c017'><strong>THE MEMOIRS OF SHERLOCK HOLMES.</strong> With Illustrations
 by <span class='sc'>Sidney Paget</span>. Crown 8vo. 3<em>s.</em> 6<em>d.</em></p>
 
-<p><strong>THROUGH THE MAGIC DOOR.</strong> Illustrated. Crown 8vo. 5<em>s.</em></p>
+<p class='c017'><strong>THROUGH THE MAGIC DOOR.</strong> Illustrated. Crown 8vo. 5<em>s.</em></p>
 
-<p><strong>SONGS OF ACTION.</strong> Fifth Impression. Fcp. 8vo. 5<em>s.</em></p>
+<p class='c017'><strong>SONGS OF ACTION.</strong> Fifth Impression. Fcp. 8vo. 5<em>s.</em></p>
 
-<p><strong>THE GREAT BOER WAR, 1899–1902.</strong> <span class='sc'>Thoroughly Revised,
+<p class='c017'><strong>THE GREAT BOER WAR, 1899–1902.</strong> <span class='sc'>Thoroughly Revised,
 Enlarged, and Completed Edition.</span> With Maps and Plans.
 19th Impression, <span class='sc'>completing over 67,000 Copies Printed</span>. Large post
 8vo. 10<em>s.</em> 6<em>d.</em></p>
 
-<p><strong>THE WAR IN SOUTH AFRICA</strong>: its Cause and Conduct.
+<p class='c017'><strong>THE WAR IN SOUTH AFRICA</strong>: its Cause and Conduct.
 Demy 8vo. Sixpence.</p>
 
-<p>Also the <strong>COLLECTED EDITION OF SIR A. CONAN DOYLE’S NOVELS</strong>
+<p class='c016'>Also the <strong>COLLECTED EDITION OF SIR A. CONAN DOYLE’S NOVELS</strong>
 in 12 Volumes. With an Introductory Preface and 2 Photogravure Illustrations
 to each volume. Large crown 8vo. 6<em>s.</em> each net.</p>
 
-<p><em>This Edition of Sir A. Conan Doyle’s Novels is limited to 1,000 sets, the first
+<p class='c017'>⁂ <em>This Edition of Sir A. Conan Doyle’s Novels is limited to 1,000 sets, the first
 volume of each set being signed and numbered; and the volumes are not sold
 separately. The Author’s future work will, in due course, be added to the Edition.</em></p>
 
@@ -13986,7 +14016,7 @@ separately. The Author’s future work will, in due course, be added to the Edit
   </div>
 </div>
 
-<p>1. <span class='sc'>The White Company.</span>—2. <span class='sc'>Micah Clarke.</span>—3. <span class='sc'>The Refugees.</span>—4. <span class='sc'>Rodney
+<p class='c019'>1. <span class='sc'>The White Company.</span>—2. <span class='sc'>Micah Clarke.</span>—3. <span class='sc'>The Refugees.</span>—4. <span class='sc'>Rodney
 Stone.</span>—5. <span class='sc'>The Adventures of Sherlock Holmes.</span>—6. <span class='sc'>Memoirs of Sherlock
 Holmes.</span>—7. <span class='sc'>A Study in Scarlet; The Sign of Four.</span>—8. <span class='sc'>The Great Shadow;
 Uncle Bernac.</span>—9. <span class='sc'>A Duet.</span>—10. <span class='sc'>The Tragedy of the ‘Korosko’; The Green
@@ -14010,69 +14040,69 @@ Brigadier.</span></p>
 
 </div>
 
-<p><strong>Our Heritage the Sea.</strong> With a Frontispiece by <span class='sc'>Arthur Twidle</span>.
+<p class='c016'><strong>Our Heritage the Sea.</strong> With a Frontispiece by <span class='sc'>Arthur Twidle</span>.
 Crown 8vo. 6<em>s.</em></p>
 
-<p><cite>DAILY TELEGRAPH.</cite>—‘The first step to winning the people to the reading a
+<p class='c019'><cite>DAILY TELEGRAPH.</cite>—‘The first step to winning the people to the reading a
 good book is to produce the good book for them to read, and that Mr. Bullen has done.’</p>
 
-<p><strong>Back to Sunny Seas.</strong> With 8 Full-page Illustrations in Colour by
+<p class='c016'><strong>Back to Sunny Seas.</strong> With 8 Full-page Illustrations in Colour by
 <span class='sc'>A. S. Forrest</span>, R.I. Crown 8vo. 6<em>s.</em></p>
 
-<p><cite>DAILY TELEGRAPH.</cite>—‘A bright, interesting and chatty record of a pleasant
+<p class='c019'><cite>DAILY TELEGRAPH.</cite>—‘A bright, interesting and chatty record of a pleasant
 cruise to the West Indies.’</p>
 
-<p><strong>Sea-Wrack.</strong> SECOND IMPRESSION. With 8 Illustrations by <span class='sc'>Arthur
+<p class='c016'><strong>Sea-Wrack.</strong> SECOND IMPRESSION. With 8 Illustrations by <span class='sc'>Arthur
 Twidle</span>. Crown 8vo. 6<em>s.</em></p>
 
-<p><cite>SPECTATOR.</cite>—‘Characteristic of Mr. Bullen’s best work.’</p>
+<p class='c019'><cite>SPECTATOR.</cite>—‘Characteristic of Mr. Bullen’s best work.’</p>
 
-<p><cite>VANITY FAIR.</cite>—‘A delightful volume.... The seafaring man is an open
+<p class='c019'><cite>VANITY FAIR.</cite>—‘A delightful volume.... The seafaring man is an open
 book to Mr. Bullen.’</p>
 
-<p><strong>Deep Sea Plunderings.</strong> THIRD IMPRESSION. With 8 Full-page
+<p class='c016'><strong>Deep Sea Plunderings.</strong> THIRD IMPRESSION. With 8 Full-page
 Illustrations by <span class='sc'>Arthur Twidle</span>. Crown 8vo. 6<em>s.</em></p>
 
-<p><cite>SPECTATOR.</cite>—‘There is something in the book to please almost every taste.’</p>
+<p class='c019'><cite>SPECTATOR.</cite>—‘There is something in the book to please almost every taste.’</p>
 
-<p><strong>The Men of the Merchant Service</strong>: being the
+<p class='c016'><strong>The Men of the Merchant Service</strong>: being the
 Polity of the Mercantile Marine for ‘Longshore Readers. SECOND
 IMPRESSION. Large post 8vo. 7<em>s.</em> 6<em>d.</em></p>
 
-<p><cite>SPECTATOR.</cite>—‘The book is of great value, and of great interest to all the
+<p class='c019'><cite>SPECTATOR.</cite>—‘The book is of great value, and of great interest to all the
 innumerable people who are curious about the most romantic and separate of lives. But
 it is of importance, secondly and chiefly, as Mr. Bullen’s appeal to the political sense of
 his country.’</p>
 
-<p><strong>The Cruise of the ‘Cachalot’ Round the World</strong>
+<p class='c016'><strong>The Cruise of the ‘Cachalot’ Round the World</strong>
 after Sperm Whales. By <span class='sc'>Frank T. Bullen</span>, First Mate. The volume
 includes a Letter to the Author from <span class='sc'>Rudyard Kipling</span>. TWELFTH
 IMPRESSION. With 8 Illustrations and a Chart. Crown 8vo. 3<em>s.</em> 6<em>d.</em></p>
 
-<p><em>The</em> Rev. Dr. HORTON, <em>in his Sermon on behalf of the British and
+<p class='c019'><em>The</em> Rev. Dr. HORTON, <em>in his Sermon on behalf of the British and
 Foreign Bible Society, referred to Mr. Bullen’s ‘Cruise of the
 “Cachalot”’ in the following terms</em>:</p>
 
-<p>‘It is a very remarkable book in every way; it seems to me worthy
+<p class='c019'>‘It is a very remarkable book in every way; it seems to me worthy
 to rank with some of the writings of Defoe. It has absolutely taken
 the shine out of some of the romantic literature of such writers as even
 Stevenson and Rudyard Kipling. By the strange law that truth is
 more wonderful than fiction, this book is more wonderful than the
 wildest dreams of the creator of imagination.’</p>
 
-<p><strong>The Log of a Sea-Waif</strong>: being the Recollections of
+<p class='c016'><strong>The Log of a Sea-Waif</strong>: being the Recollections of
 First Four Years of my Sea Life. FIFTH IMPRESSION. With 8 Full
 page Illustrations specially drawn by <span class='sc'>Arthur Twidle</span>. Crown 8vo. 3<em>s.</em> 6<em>d.</em></p>
 
-<p><cite>WORLD.</cite>—‘We have read many stories of sea life, but do not remember to have
+<p class='c019'><cite>WORLD.</cite>—‘We have read many stories of sea life, but do not remember to have
 been so fascinated and enthralled by any of them as by this masterly presentation of the
 humours, hardships, and minor tragedies of life in the forecastle.’</p>
 
-<p><strong>The Way they have In the Navy</strong>: being a Day-to-Day
+<p class='c016'><strong>The Way they have In the Navy</strong>: being a Day-to-Day
 Record of a Cruise In H.M. Battleship ‘Mars’ during the Manœuvres
 of 1899. THIRD IMPRESSION. Crown 8vo. paper covers, 1<em>s.</em>; cloth, 1<em>s.</em> 6<em>d.</em></p>
 
-<p><cite>SPECTATOR.</cite>—‘We recommend it most heartily and without any misgiving.’</p>
+<p class='c019'><cite>SPECTATOR.</cite>—‘We recommend it most heartily and without any misgiving.’</p>
 
 <div class='nf-center-c1'>
 <div class='nf-center c020'>
@@ -14090,75 +14120,75 @@ of 1899. THIRD IMPRESSION. Crown 8vo. paper covers, 1<em>s.</em>; cloth, 1<em>s.
 
 </div>
 
-<p><strong>Wesley and his Century: a study in spiritual
+<p class='c016'><strong>Wesley and his Century: a study in spiritual
 Forces.</strong> With a Photogravure Frontispiece from the Portrait of John Wesley by
 <span class='sc'>George Romney</span> and Four Facsimiles of Letters, &amp;c. <span class='sc'>Second Impression</span>.
 6<em>s.</em> net.</p>
 
-<p><cite>BOOKMAN.</cite>—‘A deeply interesting volume.... The story is good as biography
+<p class='c019'><cite>BOOKMAN.</cite>—‘A deeply interesting volume.... The story is good as biography
 and rich in material.</p>
 
-<p><strong>The Commander of the ‘Hirondelle.’</strong> With
+<p class='c016'><strong>The Commander of the ‘Hirondelle.’</strong> With
 16 Full-page Illustrations. Crown 8vo. 6<em>s.</em></p>
 
-<p><cite>ATHENÆUM.</cite>—‘An admirable sea story.... It is good literature, too, and
+<p class='c017'><cite>ATHENÆUM.</cite>—‘An admirable sea story.... It is good literature, too, and
 written with historical and technical knowledge.’</p>
 
-<p><strong>Nelson and his Captains; Sketches of Famous
+<p class='c016'><strong>Nelson and his Captains; Sketches of Famous
 Seamen.</strong> With 11 Portraits and a Facsimile Letter. <span class='sc'>Third Impression.</span>
 Crown 8vo. 6<em>s.</em></p>
 
-<p><cite>PUNCH.</cite>—‘My Baronite having read all Dr. Fitchett’s tales of battles on land,
+<p class='c019'><cite>PUNCH.</cite>—‘My Baronite having read all Dr. Fitchett’s tales of battles on land,
 thinks his best piece is his sea piece.... Saxon and Celt reading the glowing narrative
 will feel proud to know it’s all true.’</p>
 
-<p><strong>The Tale of the Great Mutiny.</strong> SEVENTH AND
+<p class='c016'><strong>The Tale of the Great Mutiny.</strong> SEVENTH AND
 CONSIDERABLY ENLARGED IMPRESSION. With 8 Portraits and 4 Plans.
 Crown 8vo. 6<em>s.</em></p>
 
-<p><cite>GUARDIAN.</cite>—‘It is almost impossible to lay the book down. The story of those
+<p class='c019'><cite>GUARDIAN.</cite>—‘It is almost impossible to lay the book down. The story of those
 summer months of 1857 must ever appeal to English readers.’</p>
 
-<p><cite>BOOKMAN.</cite>—‘Written with all the swing and dash, with all the careful accuracy
+<p class='c019'><cite>BOOKMAN.</cite>—‘Written with all the swing and dash, with all the careful accuracy
 and brilliant descriptive power which have made Dr. Fitchett’s books so deservedly
 popular.’</p>
 
-<p><strong>How England Saved Europe: the story of the
+<p class='c016'><strong>How England Saved Europe: the story of the
 Great War (1793–1815).</strong> SECOND IMPRESSION. In 4 vols. crown 8vo. with
 Portraits. Facsimiles, and Plans, 6<em>s.</em> each.</p>
 
-<p><cite>TIMES.</cite>—‘It is not without significance that this excellent “Story of the Great
+<p class='c019'><cite>TIMES.</cite>—‘It is not without significance that this excellent “Story of the Great
 War,” at once popular in the best sense, well informed, full of instruction, and very
 attractively written, should be the work of a Colonial writer.’</p>
 
-<p><cite>GUARDIAN.</cite>—‘Mr. Fitchett has achieved a real success, and the boy who cannot
+<p class='c019'><cite>GUARDIAN.</cite>—‘Mr. Fitchett has achieved a real success, and the boy who cannot
 read these volumes with pleasure (and profit) is hopeless. They are, if boyhood would
 but see it, more enthralling than half the novels published.’</p>
 
-<p><strong>Fights for the Flag.</strong> FOURTH EDITION. With 16 Portraits,
+<p class='c016'><strong>Fights for the Flag.</strong> FOURTH EDITION. With 16 Portraits,
 13 Plans, and a Facsimile Letter of the Duke of Marlborough. Crown 8vo. 6<em>s.</em></p>
 
-<p><cite>SPECTATOR.</cite>—‘“Fights for the Flag” is as good as “Deeds that Won the
+<p class='c019'><cite>SPECTATOR.</cite>—‘“Fights for the Flag” is as good as “Deeds that Won the
 Empire.” To say more than this in praise of the book before us is unnecessary, for
 “Deeds that Won the Empire” was one of the best collection of popular battle studies
 ever given to the public.’</p>
 
-<p><cite>REVIEW OF REVIEWS.</cite>—‘As a gift-book, or as a book to take up and read at
+<p class='c019'><cite>REVIEW OF REVIEWS.</cite>—‘As a gift-book, or as a book to take up and read at
 odd moments, or to devour at a prolonged sitting, this book has few equals, and will
 probably equal or eclipse the popularity of its predecessors.’</p>
 
-<p><strong>Deeds that Won the Empire.</strong> TWENTY-THIRD
+<p class='c016'><strong>Deeds that Won the Empire.</strong> TWENTY-THIRD
 EDITION. With 16 Portraits and 11 Plans. Crown 8vo. 6<em>s.</em></p>
 
-<p><cite>SPECTATOR.</cite>—‘Not since Macaulay ceased to write has English literature
+<p class='c019'><cite>SPECTATOR.</cite>—‘Not since Macaulay ceased to write has English literature
 produced a writer capable of infusing such life and vigour into historical scenes. The
 wholesome and manly tone of Mr. Fitchett’s book is specially satisfactory.... The
 book cannot but take the reader by storm wherever it finds him.’</p>
 
-<p><strong>Wellington’s Men: some Soldier-Autobiographies.</strong>
+<p class='c016'><strong>Wellington’s Men: some Soldier-Autobiographies.</strong>
 Edited by <span class='sc'>W. H. Fitchett</span>, B.A., LL.D. Crown 8vo. 6<em>s.</em></p>
 
-<p><cite>SPECTATOR.</cite>—‘Mr. Fitchett has ere this sounded the clarion and filled the fife
+<p class='c019'><cite>SPECTATOR.</cite>—‘Mr. Fitchett has ere this sounded the clarion and filled the fife
 to good purpose, but he has never done better work than in rescuing from oblivion
 the narratives which appear in this volume.... We feel very grateful to Mr. Fitchett
 for his skilful editing of four stories which ought not to be allowed to die.’</p>
@@ -14179,89 +14209,89 @@ for his skilful editing of four stories which ought not to be allowed to die.’
 
 </div>
 
-<p>THE LAST HOPE. <span class='sc'>Fourth Impression</span> (<span class='sc'>Second
+<p class='c016'>THE LAST HOPE. <span class='sc'>Fourth Impression</span> (<span class='sc'>Second
 Edition</span>). Crown 8vo, 6<em>s.</em></p>
 
-<p><cite>DAILY TELEGRAPH.</cite>—‘“The Last Hope” illustrates all Mr. Merriman’s
+<p class='c019'><cite>DAILY TELEGRAPH.</cite>—‘“The Last Hope” illustrates all Mr. Merriman’s
 good qualities.... Its interest is unflagging and its brilliancy undeniable.’</p>
 
-<p>TOMASO’S FORTUNE, and Other Stories. <span class='sc'>Second
+<p class='c016'>TOMASO’S FORTUNE, and Other Stories. <span class='sc'>Second
 Impression.</span> Crown 8vo, 6<em>s.</em></p>
 
-<p><cite>SATURDAY REVIEW.</cite>—‘Engrossing, fascinating, picturesque tales, full of
+<p class='c019'><cite>SATURDAY REVIEW.</cite>—‘Engrossing, fascinating, picturesque tales, full of
 colour, adventure, and emotion.’</p>
 
-<p>FLOTSAM. <span class='sc'>Seventh Impression.</span> With a Frontispiece.
+<p class='c016'>FLOTSAM. <span class='sc'>Seventh Impression.</span> With a Frontispiece.
 Crown 8vo, 6<em>s.</em></p>
 
-<p><cite>VANITY FAIR.</cite>—‘A capital book, that will repay any reader, old or young, for
+<p class='c019'><cite>VANITY FAIR.</cite>—‘A capital book, that will repay any reader, old or young, for
 the reading.’</p>
 
-<p>BARLASCH OF THE GUARD. <span class='sc'>Eighth Impression</span>
+<p class='c016'>BARLASCH OF THE GUARD. <span class='sc'>Eighth Impression</span>
 (<span class='sc'>Second Edition</span>). Crown 8vo, 6<em>s.</em></p>
 
-<p><cite>WORLD.</cite>—‘Without doubt, the finest thing of its kind that Mr. Merriman has yet
+<p class='c019'><cite>WORLD.</cite>—‘Without doubt, the finest thing of its kind that Mr. Merriman has yet
 accomplished in fiction. Barlasch is a masterpiece.’</p>
 
-<p>THE VULTURES. <span class='sc'>Seventh Impression.</span> Crown 8vo, 6<em>s.</em></p>
+<p class='c019'>THE VULTURES. <span class='sc'>Seventh Impression.</span> Crown 8vo, 6<em>s.</em></p>
 
-<p><cite>DAILY NEWS.</cite>—‘It is a notable book, stirring, fresh, and of a high interest; it
+<p class='c019'><cite>DAILY NEWS.</cite>—‘It is a notable book, stirring, fresh, and of a high interest; it
 fascinates and holds us to the end.... A fine book, a worthy successor of “The
 Sowers.”’</p>
 
-<p>THE VELVET GLOVE. <span class='sc'>Fifth Impression.</span> Crown
+<p class='c016'>THE VELVET GLOVE. <span class='sc'>Fifth Impression.</span> Crown
 8vo, 6<em>s.</em></p>
 
-<p><cite>SKETCH.</cite>—‘Equal to, if not better than, the best he has ever written. “The
+<p class='c019'><cite>SKETCH.</cite>—‘Equal to, if not better than, the best he has ever written. “The
 Velvet Glove” is the very essence of good romance.’</p>
 
-<p>THE ISLE OF UNREST. <span class='sc'>Seventh Impression.</span>
+<p class='c016'>THE ISLE OF UNREST. <span class='sc'>Seventh Impression.</span>
 With Illustrations. Crown 8vo, 6<em>s.</em></p>
 
-<p><cite>THE TIMES.</cite>—‘Capital reading, absorbing reading.... An exciting story,
+<p class='c019'><cite>THE TIMES.</cite>—‘Capital reading, absorbing reading.... An exciting story,
 with “thrills” at every third page.’</p>
 
-<p>RODEN’S CORNER. <span class='sc'>Fifth Edition.</span> Crown 8vo, 6<em>s.</em></p>
+<p class='c019'>RODEN’S CORNER. <span class='sc'>Fifth Edition.</span> Crown 8vo, 6<em>s.</em></p>
 
-<p><cite>TRUTH.</cite>—‘A novel I defy you to lay down when once you have got well into it.’</p>
+<p class='c019'><cite>TRUTH.</cite>—‘A novel I defy you to lay down when once you have got well into it.’</p>
 
-<p>IN KEDAR’S TENTS. <span class='sc'>Tenth Edition.</span> Crown 8vo, 6<em>s.</em></p>
+<p class='c019'>IN KEDAR’S TENTS. <span class='sc'>Tenth Edition.</span> Crown 8vo, 6<em>s.</em></p>
 
-<p><cite>PALL MALL GAZETTE.</cite>—‘After the few first pages one ceases to criticize,
+<p class='c019'><cite>PALL MALL GAZETTE.</cite>—‘After the few first pages one ceases to criticize,
 one can only enjoy.... In a word—the use of which, unqualified, is such a rare
 and delicious luxury—the book is good.’</p>
 
-<p>THE SOWERS. <span class='sc'>Twenty-Eighth Edition.</span> Crown 8vo, 6<em>s.</em></p>
+<p class='c019'>THE SOWERS. <span class='sc'>Twenty-Eighth Edition.</span> Crown 8vo, 6<em>s.</em></p>
 
-<p><cite>GRAPHIC.</cite>—‘His absorbingly interesting story will be found very difficult
+<p class='c019'><cite>GRAPHIC.</cite>—‘His absorbingly interesting story will be found very difficult
 indeed to lay down until its last page has been turned.’</p>
 
-<p>WITH EDGED TOOLS. Crown 8vo, 6<em>s.</em>; and Fcap.
+<p class='c016'>WITH EDGED TOOLS. Crown 8vo, 6<em>s.</em>; and Fcap.
 8vo, boards, Pictorial Cover, 2<em>s.</em>; or limp red cloth, 2<em>s.</em> 6<em>d.</em></p>
 
-<p><cite>WESTMINSTER GAZETTE.</cite>—‘Admirably conceived as a whole, and most
+<p class='c019'><cite>WESTMINSTER GAZETTE.</cite>—‘Admirably conceived as a whole, and most
 skilful in its details. The story never flags or loiters.’</p>
 
-<p>FROM ONE GENERATION TO ANOTHER.
+<p class='c016'>FROM ONE GENERATION TO ANOTHER.
 Crown 8vo, 6<em>s.</em>; and Fcap. 8vo, boards, Pictorial Cover, 2<em>s.</em>; or limp
 red cloth, 2<em>s.</em> 6<em>d.</em></p>
 
-<p><cite>ILLUSTRATED LONDON NEWS.</cite>—‘The book is a good book. The
+<p class='c019'><cite>ILLUSTRATED LONDON NEWS.</cite>—‘The book is a good book. The
 characters of Michael Seymour and of James Agar are admirably contrasted.’</p>
 
-<p>THE SLAVE OF THE LAMP. Crown 8vo, 6<em>s.</em>; and
+<p class='c016'>THE SLAVE OF THE LAMP. Crown 8vo, 6<em>s.</em>; and
 Fcap. 8vo, boards, Pictorial Cover, 2<em>s.</em>; or limp red cloth, 2<em>s.</em> 6<em>d.</em></p>
 
-<p><cite>MANCHESTER GUARDIAN.</cite>—‘A masterly story ... so like real life, and so
+<p class='c019'><cite>MANCHESTER GUARDIAN.</cite>—‘A masterly story ... so like real life, and so
 entirely unconventional.’</p>
 
-<p>THE GREY LADY. With 12 Full-page Illustrations by
+<p class='c016'>THE GREY LADY. With 12 Full-page Illustrations by
 <span class='sc'>Arthur Rackham</span>. <span class='sc'>Sixth Impression.</span> Crown 8vo, 6<em>s.</em></p>
 
-<p><cite>BRITISH WEEKLY.</cite>—‘An interesting, thoughtful, carefully written story,
+<p class='c019'><cite>BRITISH WEEKLY.</cite>—‘An interesting, thoughtful, carefully written story,
 with a charming touch of pensiveness.’</p>
 
-<p>NOTE.—Mr. MERRIMAN’S 14 NOVELS are published uniform in style,
+<p class='c016'>NOTE.—Mr. MERRIMAN’S 14 NOVELS are published uniform in style,
 binding, and price, and thus form a Collected Edition of his Works.</p>
 
 <div class='nf-center-c1'>
@@ -14272,7 +14302,7 @@ binding, and price, and thus form a Collected Edition of his Works.</p>
 
 <div class='pbb'>
  <hr class='pb c003' />
-<p>&#160;</p>
+<p>&nbsp;</p>
 </div>
 <div class='tnotes'>
 
@@ -14295,9 +14325,371 @@ binding, and price, and thus form a Collected Edition of his Works.</p>
 
 </div>
 
-<p>&#160;</p>
-<p>&#160;</p>
-<div>*** END OF THE PROJECT GUTENBERG EBOOK 54109 ***</div>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<hr class="full" />
+<p>***END OF THE PROJECT GUTENBERG EBOOK ROUND THE FIRE STORIES***</p>
+<p>******* This file should be named 54109-h.htm or 54109-h.zip *******</p>
+<p>This and all associated files of various formats will be found in:<br />
+<a href="http://www.gutenberg.org/dirs/5/4/1/0/54109">http://www.gutenberg.org/5/4/1/0/54109</a></p>
+<p>
+Updated editions will replace the previous one--the old editions will
+be renamed.</p>
+
+<p>Creating the works from print editions not protected by U.S. copyright
+law means that no one owns a United States copyright in these works,
+so the Foundation (and you!) can copy and distribute it in the United
+States without permission and without paying copyright
+royalties. Special rules, set forth in the General Terms of Use part
+of this license, apply to copying and distributing Project
+Gutenberg-tm electronic works to protect the PROJECT GUTENBERG-tm
+concept and trademark. Project Gutenberg is a registered trademark,
+and may not be used if you charge for the eBooks, unless you receive
+specific permission. If you do not charge anything for copies of this
+eBook, complying with the rules is very easy. You may use this eBook
+for nearly any purpose such as creation of derivative works, reports,
+performances and research. They may be modified and printed and given
+away--you may do practically ANYTHING in the United States with eBooks
+not protected by U.S. copyright law. Redistribution is subject to the
+trademark license, especially commercial redistribution.
+</p>
+
+<h2>START: FULL LICENSE<br />
+<br />
+THE FULL PROJECT GUTENBERG LICENSE<br />
+PLEASE READ THIS BEFORE YOU DISTRIBUTE OR USE THIS WORK</h2>
+
+<p>To protect the Project Gutenberg-tm mission of promoting the free
+distribution of electronic works, by using or distributing this work
+(or any other work associated in any way with the phrase "Project
+Gutenberg"), you agree to comply with all the terms of the Full
+Project Gutenberg-tm License available with this file or online at
+www.gutenberg.org/license.</p>
+
+<h3>Section 1. General Terms of Use and Redistributing Project
+Gutenberg-tm electronic works</h3>
+
+<p>1.A. By reading or using any part of this Project Gutenberg-tm
+electronic work, you indicate that you have read, understand, agree to
+and accept all the terms of this license and intellectual property
+(trademark/copyright) agreement. If you do not agree to abide by all
+the terms of this agreement, you must cease using and return or
+destroy all copies of Project Gutenberg-tm electronic works in your
+possession. If you paid a fee for obtaining a copy of or access to a
+Project Gutenberg-tm electronic work and you do not agree to be bound
+by the terms of this agreement, you may obtain a refund from the
+person or entity to whom you paid the fee as set forth in paragraph
+1.E.8.</p>
+
+<p>1.B. "Project Gutenberg" is a registered trademark. It may only be
+used on or associated in any way with an electronic work by people who
+agree to be bound by the terms of this agreement. There are a few
+things that you can do with most Project Gutenberg-tm electronic works
+even without complying with the full terms of this agreement. See
+paragraph 1.C below. There are a lot of things you can do with Project
+Gutenberg-tm electronic works if you follow the terms of this
+agreement and help preserve free future access to Project Gutenberg-tm
+electronic works. See paragraph 1.E below.</p>
+
+<p>1.C. The Project Gutenberg Literary Archive Foundation ("the
+Foundation" or PGLAF), owns a compilation copyright in the collection
+of Project Gutenberg-tm electronic works. Nearly all the individual
+works in the collection are in the public domain in the United
+States. If an individual work is unprotected by copyright law in the
+United States and you are located in the United States, we do not
+claim a right to prevent you from copying, distributing, performing,
+displaying or creating derivative works based on the work as long as
+all references to Project Gutenberg are removed. Of course, we hope
+that you will support the Project Gutenberg-tm mission of promoting
+free access to electronic works by freely sharing Project Gutenberg-tm
+works in compliance with the terms of this agreement for keeping the
+Project Gutenberg-tm name associated with the work. You can easily
+comply with the terms of this agreement by keeping this work in the
+same format with its attached full Project Gutenberg-tm License when
+you share it without charge with others.</p>
+
+<p>1.D. The copyright laws of the place where you are located also govern
+what you can do with this work. Copyright laws in most countries are
+in a constant state of change. If you are outside the United States,
+check the laws of your country in addition to the terms of this
+agreement before downloading, copying, displaying, performing,
+distributing or creating derivative works based on this work or any
+other Project Gutenberg-tm work. The Foundation makes no
+representations concerning the copyright status of any work in any
+country outside the United States.</p>
+
+<p>1.E. Unless you have removed all references to Project Gutenberg:</p>
+
+<p>1.E.1. The following sentence, with active links to, or other
+immediate access to, the full Project Gutenberg-tm License must appear
+prominently whenever any copy of a Project Gutenberg-tm work (any work
+on which the phrase "Project Gutenberg" appears, or with which the
+phrase "Project Gutenberg" is associated) is accessed, displayed,
+performed, viewed, copied or distributed:</p>
+
+<blockquote><p>This eBook is for the use of anyone anywhere in the United
+  States and most other parts of the world at no cost and with almost
+  no restrictions whatsoever. You may copy it, give it away or re-use
+  it under the terms of the Project Gutenberg License included with
+  this eBook or online
+  at <a href="http://www.gutenberg.org">www.gutenberg.org</a>. If you
+  are not located in the United States, you'll have to check the laws
+  of the country where you are located before using this
+  ebook.</p></blockquote>
+
+<p>1.E.2. If an individual Project Gutenberg-tm electronic work is
+derived from texts not protected by U.S. copyright law (does not
+contain a notice indicating that it is posted with permission of the
+copyright holder), the work can be copied and distributed to anyone in
+the United States without paying any fees or charges. If you are
+redistributing or providing access to a work with the phrase "Project
+Gutenberg" associated with or appearing on the work, you must comply
+either with the requirements of paragraphs 1.E.1 through 1.E.7 or
+obtain permission for the use of the work and the Project Gutenberg-tm
+trademark as set forth in paragraphs 1.E.8 or 1.E.9.</p>
+
+<p>1.E.3. If an individual Project Gutenberg-tm electronic work is posted
+with the permission of the copyright holder, your use and distribution
+must comply with both paragraphs 1.E.1 through 1.E.7 and any
+additional terms imposed by the copyright holder. Additional terms
+will be linked to the Project Gutenberg-tm License for all works
+posted with the permission of the copyright holder found at the
+beginning of this work.</p>
+
+<p>1.E.4. Do not unlink or detach or remove the full Project Gutenberg-tm
+License terms from this work, or any files containing a part of this
+work or any other work associated with Project Gutenberg-tm.</p>
+
+<p>1.E.5. Do not copy, display, perform, distribute or redistribute this
+electronic work, or any part of this electronic work, without
+prominently displaying the sentence set forth in paragraph 1.E.1 with
+active links or immediate access to the full terms of the Project
+Gutenberg-tm License.</p>
+
+<p>1.E.6. You may convert to and distribute this work in any binary,
+compressed, marked up, nonproprietary or proprietary form, including
+any word processing or hypertext form. However, if you provide access
+to or distribute copies of a Project Gutenberg-tm work in a format
+other than "Plain Vanilla ASCII" or other format used in the official
+version posted on the official Project Gutenberg-tm web site
+(www.gutenberg.org), you must, at no additional cost, fee or expense
+to the user, provide a copy, a means of exporting a copy, or a means
+of obtaining a copy upon request, of the work in its original "Plain
+Vanilla ASCII" or other form. Any alternate format must include the
+full Project Gutenberg-tm License as specified in paragraph 1.E.1.</p>
+
+<p>1.E.7. Do not charge a fee for access to, viewing, displaying,
+performing, copying or distributing any Project Gutenberg-tm works
+unless you comply with paragraph 1.E.8 or 1.E.9.</p>
+
+<p>1.E.8. You may charge a reasonable fee for copies of or providing
+access to or distributing Project Gutenberg-tm electronic works
+provided that</p>
+
+<ul>
+<li>You pay a royalty fee of 20% of the gross profits you derive from
+  the use of Project Gutenberg-tm works calculated using the method
+  you already use to calculate your applicable taxes. The fee is owed
+  to the owner of the Project Gutenberg-tm trademark, but he has
+  agreed to donate royalties under this paragraph to the Project
+  Gutenberg Literary Archive Foundation. Royalty payments must be paid
+  within 60 days following each date on which you prepare (or are
+  legally required to prepare) your periodic tax returns. Royalty
+  payments should be clearly marked as such and sent to the Project
+  Gutenberg Literary Archive Foundation at the address specified in
+  Section 4, "Information about donations to the Project Gutenberg
+  Literary Archive Foundation."</li>
+
+<li>You provide a full refund of any money paid by a user who notifies
+  you in writing (or by e-mail) within 30 days of receipt that s/he
+  does not agree to the terms of the full Project Gutenberg-tm
+  License. You must require such a user to return or destroy all
+  copies of the works possessed in a physical medium and discontinue
+  all use of and all access to other copies of Project Gutenberg-tm
+  works.</li>
+
+<li>You provide, in accordance with paragraph 1.F.3, a full refund of
+  any money paid for a work or a replacement copy, if a defect in the
+  electronic work is discovered and reported to you within 90 days of
+  receipt of the work.</li>
+
+<li>You comply with all other terms of this agreement for free
+  distribution of Project Gutenberg-tm works.</li>
+</ul>
+
+<p>1.E.9. If you wish to charge a fee or distribute a Project
+Gutenberg-tm electronic work or group of works on different terms than
+are set forth in this agreement, you must obtain permission in writing
+from both the Project Gutenberg Literary Archive Foundation and The
+Project Gutenberg Trademark LLC, the owner of the Project Gutenberg-tm
+trademark. Contact the Foundation as set forth in Section 3 below.</p>
+
+<p>1.F.</p>
+
+<p>1.F.1. Project Gutenberg volunteers and employees expend considerable
+effort to identify, do copyright research on, transcribe and proofread
+works not protected by U.S. copyright law in creating the Project
+Gutenberg-tm collection. Despite these efforts, Project Gutenberg-tm
+electronic works, and the medium on which they may be stored, may
+contain "Defects," such as, but not limited to, incomplete, inaccurate
+or corrupt data, transcription errors, a copyright or other
+intellectual property infringement, a defective or damaged disk or
+other medium, a computer virus, or computer codes that damage or
+cannot be read by your equipment.</p>
+
+<p>1.F.2. LIMITED WARRANTY, DISCLAIMER OF DAMAGES - Except for the "Right
+of Replacement or Refund" described in paragraph 1.F.3, the Project
+Gutenberg Literary Archive Foundation, the owner of the Project
+Gutenberg-tm trademark, and any other party distributing a Project
+Gutenberg-tm electronic work under this agreement, disclaim all
+liability to you for damages, costs and expenses, including legal
+fees. YOU AGREE THAT YOU HAVE NO REMEDIES FOR NEGLIGENCE, STRICT
+LIABILITY, BREACH OF WARRANTY OR BREACH OF CONTRACT EXCEPT THOSE
+PROVIDED IN PARAGRAPH 1.F.3. YOU AGREE THAT THE FOUNDATION, THE
+TRADEMARK OWNER, AND ANY DISTRIBUTOR UNDER THIS AGREEMENT WILL NOT BE
+LIABLE TO YOU FOR ACTUAL, DIRECT, INDIRECT, CONSEQUENTIAL, PUNITIVE OR
+INCIDENTAL DAMAGES EVEN IF YOU GIVE NOTICE OF THE POSSIBILITY OF SUCH
+DAMAGE.</p>
+
+<p>1.F.3. LIMITED RIGHT OF REPLACEMENT OR REFUND - If you discover a
+defect in this electronic work within 90 days of receiving it, you can
+receive a refund of the money (if any) you paid for it by sending a
+written explanation to the person you received the work from. If you
+received the work on a physical medium, you must return the medium
+with your written explanation. The person or entity that provided you
+with the defective work may elect to provide a replacement copy in
+lieu of a refund. If you received the work electronically, the person
+or entity providing it to you may choose to give you a second
+opportunity to receive the work electronically in lieu of a refund. If
+the second copy is also defective, you may demand a refund in writing
+without further opportunities to fix the problem.</p>
+
+<p>1.F.4. Except for the limited right of replacement or refund set forth
+in paragraph 1.F.3, this work is provided to you 'AS-IS', WITH NO
+OTHER WARRANTIES OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT
+LIMITED TO WARRANTIES OF MERCHANTABILITY OR FITNESS FOR ANY PURPOSE.</p>
+
+<p>1.F.5. Some states do not allow disclaimers of certain implied
+warranties or the exclusion or limitation of certain types of
+damages. If any disclaimer or limitation set forth in this agreement
+violates the law of the state applicable to this agreement, the
+agreement shall be interpreted to make the maximum disclaimer or
+limitation permitted by the applicable state law. The invalidity or
+unenforceability of any provision of this agreement shall not void the
+remaining provisions.</p>
+
+<p>1.F.6. INDEMNITY - You agree to indemnify and hold the Foundation, the
+trademark owner, any agent or employee of the Foundation, anyone
+providing copies of Project Gutenberg-tm electronic works in
+accordance with this agreement, and any volunteers associated with the
+production, promotion and distribution of Project Gutenberg-tm
+electronic works, harmless from all liability, costs and expenses,
+including legal fees, that arise directly or indirectly from any of
+the following which you do or cause to occur: (a) distribution of this
+or any Project Gutenberg-tm work, (b) alteration, modification, or
+additions or deletions to any Project Gutenberg-tm work, and (c) any
+Defect you cause.  </p>
+
+<h3>Section 2. Information about the Mission of Project Gutenberg-tm</h3>
+
+<p>Project Gutenberg-tm is synonymous with the free distribution of
+electronic works in formats readable by the widest variety of
+computers including obsolete, old, middle-aged and new computers. It
+exists because of the efforts of hundreds of volunteers and donations
+from people in all walks of life.</p>
+
+<p>Volunteers and financial support to provide volunteers with the
+assistance they need are critical to reaching Project Gutenberg-tm's
+goals and ensuring that the Project Gutenberg-tm collection will
+remain freely available for generations to come. In 2001, the Project
+Gutenberg Literary Archive Foundation was created to provide a secure
+and permanent future for Project Gutenberg-tm and future
+generations. To learn more about the Project Gutenberg Literary
+Archive Foundation and how your efforts and donations can help, see
+Sections 3 and 4 and the Foundation information page at
+www.gutenberg.org.</p>
+
+<h3>Section 3. Information about the Project Gutenberg
+Literary Archive Foundation</h3>
+
+<p>The Project Gutenberg Literary Archive Foundation is a non profit
+501(c)(3) educational corporation organized under the laws of the
+state of Mississippi and granted tax exempt status by the Internal
+Revenue Service. The Foundation's EIN or federal tax identification
+number is 64-6221541. Contributions to the Project Gutenberg Literary
+Archive Foundation are tax deductible to the full extent permitted by
+U.S. federal laws and your state's laws.</p>
+
+<p>The Foundation's principal office is in Fairbanks, Alaska, with the
+mailing address: PO Box 750175, Fairbanks, AK 99775, but its
+volunteers and employees are scattered throughout numerous
+locations. Its business office is located at 809 North 1500 West, Salt
+Lake City, UT 84116, (801) 596-1887. Email contact links and up to
+date contact information can be found at the Foundation's web site and
+official page at www.gutenberg.org/contact</p>
+
+<p>For additional contact information:</p>
+
+<p> Dr. Gregory B. Newby<br />
+    Chief Executive and Director<br />
+    gbnewby@pglaf.org</p>
+
+<h3>Section 4. Information about Donations to the Project Gutenberg
+Literary Archive Foundation</h3>
+
+<p>Project Gutenberg-tm depends upon and cannot survive without wide
+spread public support and donations to carry out its mission of
+increasing the number of public domain and licensed works that can be
+freely distributed in machine readable form accessible by the widest
+array of equipment including outdated equipment. Many small donations
+($1 to $5,000) are particularly important to maintaining tax exempt
+status with the IRS.</p>
+
+<p>The Foundation is committed to complying with the laws regulating
+charities and charitable donations in all 50 states of the United
+States. Compliance requirements are not uniform and it takes a
+considerable effort, much paperwork and many fees to meet and keep up
+with these requirements. We do not solicit donations in locations
+where we have not received written confirmation of compliance. To SEND
+DONATIONS or determine the status of compliance for any particular
+state visit <a href="http://www.gutenberg.org/donate">www.gutenberg.org/donate</a>.</p>
+
+<p>While we cannot and do not solicit contributions from states where we
+have not met the solicitation requirements, we know of no prohibition
+against accepting unsolicited donations from donors in such states who
+approach us with offers to donate.</p>
+
+<p>International donations are gratefully accepted, but we cannot make
+any statements concerning tax treatment of donations received from
+outside the United States. U.S. laws alone swamp our small staff.</p>
+
+<p>Please check the Project Gutenberg Web pages for current donation
+methods and addresses. Donations are accepted in a number of other
+ways including checks, online payments and credit card donations. To
+donate, please visit: www.gutenberg.org/donate</p>
+
+<h3>Section 5. General Information About Project Gutenberg-tm electronic works.</h3>
+
+<p>Professor Michael S. Hart was the originator of the Project
+Gutenberg-tm concept of a library of electronic works that could be
+freely shared with anyone. For forty years, he produced and
+distributed Project Gutenberg-tm eBooks with only a loose network of
+volunteer support.</p>
+
+<p>Project Gutenberg-tm eBooks are often created from several printed
+editions, all of which are confirmed as not protected by copyright in
+the U.S. unless a copyright notice is included. Thus, we do not
+necessarily keep eBooks in compliance with any particular paper
+edition.</p>
+
+<p>Most people start at our Web site which has the main PG search
+facility: www.gutenberg.org</p>
+
+<p>This Web site includes information about Project Gutenberg-tm,
+including how to make donations to the Project Gutenberg Literary
+Archive Foundation, how to help produce our new eBooks, and how to
+subscribe to our email newsletter to hear about new eBooks.</p>
+
 </body>
 </html>
 
